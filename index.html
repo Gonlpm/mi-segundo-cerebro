@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>Mi Segundo Cerebro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section id="login">
+      <div class="brain">🧠</div>
+      <h1>Mi Segundo Cerebro</h1>
+      <p>Tu memoria personal, privada y organizada.</p>
+
+      <form id="login-form">
+        <label for="email">Correo electrónico</label>
+        <input id="email" type="email" autocomplete="username" required>
+
+        <label for="password">Contraseña</label>
+        <input id="password" type="password"
+          autocomplete="current-password" required>
+
+        <button type="submit">Entrar</button>
+        <p id="login-message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="app" hidden>
+      <header class="topbar">
+        <div>
+          <h1>🧠 Mi Segundo Cerebro</h1>
+          <p>Tu memoria personal</p>
+        </div>
+        <button id="logout" class="secondary">Cerrar sesión</button>
+      </header>
+
+      <nav class="tabs" aria-label="Secciones">
+        <button class="tab active" data-view="chat">Mi chat</button>
+        <button class="tab" data-view="memories">Mis recuerdos</button>
+      </nav>
+
+      <section id="chat-view" class="panel">
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="bubble assistant">
+            ¡Hola! Puedes guardar un recuerdo escribiendo
+            «Guarda que…» o consultar lo que ya has guardado.
+          </div>
+        </div>
+
+        <form id="chat-form" class="chat-form">
+          <textarea id="prompt" rows="2"
+            placeholder="Escribe aquí lo que quieres recordar…"
+            required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+        <p id="chat-status" role="status"></p>
+      </section>
+
+      <section id="memories-view" class="panel" hidden>
+        <h2>Todos mis recuerdos</h2>
+        <p>Solo se mostrarán después de descifrarlos en tu navegador.</p>
+        <div id="memory-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="crypto.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
